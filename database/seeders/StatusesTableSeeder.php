@@ -13,9 +13,9 @@ class StatusesTableSeeder extends Seeder
     public function run(): void
     {
         $statuses = [
-            ['name' => 'todo', 'title' => 'К выполнению'],
-            ['name' => 'in_progress', 'title' => 'В работе'],
-            ['name' => 'done', 'title' => 'Выполнено'],
+            ['id' => 1, 'name' => 'todo', 'title' => 'К выполнению'],
+            ['id' => 2, 'name' => 'in_progress', 'title' => 'В работе'],
+            ['id' => 3, 'name' => 'done', 'title' => 'Выполнено'],
         ];
 
         foreach ($statuses as $status) {

@@ -13,9 +13,9 @@ class PrioritiesTableSeeder extends Seeder
     public function run(): void
     {
         $priorities = [
-            ['name' => 'low', 'title' => 'Низкий'],
-            ['name' => 'medium', 'title' => 'Средний'],
-            ['name' => 'high', 'title' => 'Высокий'],
+            ['id' => 1, 'name' => 'low', 'title' => 'Низкий'],
+            ['id' => 2, 'name' => 'medium', 'title' => 'Средний'],
+            ['id' => 3, 'name' => 'high', 'title' => 'Высокий'],
         ];
 
         foreach ($priorities as $priority) {

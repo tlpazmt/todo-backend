@@ -4,12 +4,30 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class Task extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'description', 'status_id', 'priority_id'];
+    protected $fillable = [
+        'title',
+        'description',
+        'status_id',
+        'priority_id',
+        'user_id',
+    ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($task) {
+            if (!$task->user_id) {
+                $task->user_id = Auth::id();
+            }
+        });
+    }
 
     public function status()
     {

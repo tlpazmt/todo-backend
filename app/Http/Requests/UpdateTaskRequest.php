@@ -3,7 +3,6 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Facades\Auth;
 
 class UpdateTaskRequest extends FormRequest
 {
@@ -12,7 +11,7 @@ class UpdateTaskRequest extends FormRequest
      */
     public function authorize()
     {
-        return Auth::id() === $this->task->user_id;
+        return true;
     }
 
     /**
@@ -21,10 +20,10 @@ class UpdateTaskRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|string|max:255',
-            'description' => 'nullable|string',
-            'status_id' => 'required|exists:statuses,id',
-            'priority_id' => 'required|exists:priorities,id',
+            'title' => 'string|max:255',
+            'description' => 'string',
+            'status_id' => 'exists:statuses,id',
+            'priority_id' => 'exists:priorities,id',
         ];
     }
 }
