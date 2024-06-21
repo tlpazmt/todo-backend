@@ -24,6 +24,7 @@ class TaskController extends Controller
                 'status_id',
                 'priority_id',
             ])
+            ->with(['status', 'priority'])
             ->get();
 
         return response()->json($tasks);
